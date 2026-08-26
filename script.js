@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalHora.textContent = actividad.dataset.hora;
       modalDescripcion.textContent = actividad.dataset.descripcion;
       modalPonentes.textContent = actividad.dataset.ponentes;
+      document.getElementById('modal-semblanza').textContent = actividad.dataset.semblanza;
       modalImagen.src = actividad.dataset.imagen;
       modal.style.display = 'flex';
     });
