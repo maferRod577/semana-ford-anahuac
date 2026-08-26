@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalPonentes = document.getElementById('modal-ponentes');
   const modalImagen = document.getElementById('modal-imagen');
   const cerrarBtn = document.getElementById('cerrarModal');
+        document.getElementById('modal-semblanza').textContent = actividad.dataset.semblanza;
 
   actividades.forEach(actividad => {
     actividad.addEventListener('click', () => {
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modalHora.textContent = actividad.dataset.hora;
       modalDescripcion.textContent = actividad.dataset.descripcion;
       modalPonentes.textContent = actividad.dataset.ponentes;
-      document.getElementById('modal-semblanza').textContent = actividad.dataset.semblanza;
       modalImagen.src = actividad.dataset.imagen;
       modal.style.display = 'flex';
     });
