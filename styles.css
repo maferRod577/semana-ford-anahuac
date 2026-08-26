@@ -9,6 +9,13 @@ body {
   background-color: #f4f4f4;
   color: #222;
 }
+.modal-semblanza {
+  font-style: italic;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  text-align: left;
+}
 
 /* BANNER */
 .banner {
