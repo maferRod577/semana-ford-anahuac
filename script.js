@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDescripcion = document.getElementById('modal-descripcion');
   const modalPonentes = document.getElementById('modal-ponentes');
   const modalSemblanza = document.getElementById('modal-semblanza');
-  const modalImagen = document.getElementById('modal-imagen');
   const cerrarBtn = document.getElementById('cerrarModal');
 
   actividades.forEach(actividad => {
@@ -19,11 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
       modalHora.textContent = actividad.dataset.hora;
       modalDescripcion.textContent = actividad.dataset.descripcion;
       modalPonentes.innerHTML = actividad.dataset.ponentes.replace(/&#10;|\n/g, '<br>');
-      modalSemblanza.innerHTML = actividad.dataset.semblanza.replace(/&#10;|\n/g, '<br><br>');
+      modalSemblanza.innerHTML = (actividad.dataset.semblanza || '').replace(/&#10;|\n/g, '<br><br>');
+
       const imagenes = actividad.dataset.imagen.split(',').map(img => img.trim());
-document.getElementById('modal-imagenes').innerHTML = imagenes
-  .map(img => `<img src="${img}" alt="Foto de ponente">`)
-  .join('');
+      document.getElementById('modal-imagenes').innerHTML = imagenes
+        .map(img => `<img src="${img}" alt="Foto de ponente">`)
+        .join('');
 
       modal.style.display = 'flex';
     });
@@ -33,14 +33,12 @@ document.getElementById('modal-imagenes').innerHTML = imagenes
     modal.style.display = 'none';
   });
 
-  // Cerrar al hacer clic fuera del contenido
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
 
-  // Cerrar con tecla ESC
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       modal.style.display = 'none';
