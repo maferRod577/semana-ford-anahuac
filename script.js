@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
       modalDescripcion.textContent = actividad.dataset.descripcion;
       modalPonentes.innerHTML = actividad.dataset.ponentes.replace(/&#10;|\n/g, '<br>');
       modalSemblanza.innerHTML = actividad.dataset.semblanza.replace(/&#10;|\n/g, '<br><br>');
-      modalImagen.src = actividad.dataset.imagen;
+      const imagenes = actividad.dataset.imagen.split(',').map(img => img.trim());
+document.getElementById('modal-imagenes').innerHTML = imagenes
+  .map(img => `<img src="${img}" alt="Foto de ponente">`)
+  .join('');
+
       modal.style.display = 'flex';
     });
   });
