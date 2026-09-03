@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       modalUbicacion.textContent = actividad.dataset.ubicacion;
       modalHora.textContent = actividad.dataset.hora;
       modalDescripcion.textContent = actividad.dataset.descripcion;
-      modalPonentes.textContent = actividad.dataset.ponentes;
-      modalSemblanza.textContent = actividad.dataset.semblanza;
+      modalPonentes.innerHTML = actividad.dataset.ponentes.replace(/&#10;|\n/g, '<br>');
+      modalSemblanza.innerHTML = actividad.dataset.semblanza.replace(/&#10;|\n/g, '<br><br>');
       modalImagen.src = actividad.dataset.imagen;
       modal.style.display = 'flex';
     });
