@@ -58,6 +58,24 @@ body {
   line-height: 1.6;
   font-size: 1.05rem;
 }
+.texto-intro {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: justify;
+}
+
+.texto-intro p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.texto-intro p strong {
+  color: #003478; /* azul Ford */
+  font-size: 1.1rem;
+}
+
 
 /* NOTA */
 .nota {
