@@ -253,6 +253,22 @@ body {
   text-align: left;
 }
 
+.modal-imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.modal-imagenes img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+
 
 .cerrar {
   position: absolute;
