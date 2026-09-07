@@ -75,7 +75,6 @@ body {
   color: #003478; /* azul Ford */
   font-size: 1.1rem;
 }
-
 .ponente-bloque {
   display: flex;
   align-items: flex-start;
@@ -111,7 +110,15 @@ body {
   line-height: 1.5;
   text-align: justify;
 }
+
+@media (max-width: 480px) {
+  .ponente-bloque {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
+
 
 
 
