@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalUbicacion = document.getElementById('modal-ubicacion');
   const modalHora = document.getElementById('modal-hora');
   const modalDescripcion = document.getElementById('modal-descripcion');
-  const modalPonentes = document.getElementById('modal-ponentes');
-  const modalSemblanza = document.getElementById('modal-semblanza');
+  const modalPonentesLista = document.getElementById('modal-ponentes-lista');
   const cerrarBtn = document.getElementById('cerrarModal');
 
   actividades.forEach(actividad => {
@@ -17,13 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
       modalUbicacion.textContent = actividad.dataset.ubicacion;
       modalHora.textContent = actividad.dataset.hora;
       modalDescripcion.textContent = actividad.dataset.descripcion;
-      modalPonentes.innerHTML = actividad.dataset.ponentes.replace(/&#10;|\n/g, '<br>');
-      modalSemblanza.innerHTML = (actividad.dataset.semblanza || '').replace(/&#10;|\n/g, '<br><br>');
 
-      const imagenes = actividad.dataset.imagen.split(',').map(img => img.trim());
-      document.getElementById('modal-imagenes').innerHTML = imagenes
-        .map(img => `<img src="${img}" alt="Foto de ponente">`)
-        .join('');
+      const nombres = actividad.dataset.ponentes.split('|').map(n => n.trim());
+      const semblanzas = (actividad.dataset.semblanza || '').split('|').map(s => s.trim());
+      const imagenes = actividad.dataset.imagen.split('|').map(i => i.trim());
+
+      modalPonentesLista.innerHTML = nombres.map((nombre, i) => `
+        <div class="ponente-bloque">
+          <img src="${imagenes[i] || ''}" alt="${nombre}" class="ponente-foto">
+          <div class="ponente-texto">
+            <h5>${nombre}</h5>
+            <p>${semblanzas[i] || ''}</p>
+          </div>
+        </div>
+      `).join('');
 
       modal.style.display = 'flex';
     });
