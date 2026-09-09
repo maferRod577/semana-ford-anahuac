@@ -50,6 +50,29 @@ body {
   object-fit: contain;
 }
 
+.contenedor-boton {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.btn-preregistro {
+  display: inline-block;
+  background-color: #0071F7; /* azul Ford */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 14px 36px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-preregistro:hover {
+  background-color: #00224d;
+  transform: scale(1.05);
+}
+
+
 /* DESCRIPCIÓN */
 .descripcion {
   max-width: 900px;
